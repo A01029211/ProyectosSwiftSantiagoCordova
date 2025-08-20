@@ -26,6 +26,8 @@ class PlayersViewModel {
         let Player3 = Player(name: "Cobe White", imageName: "Chicago", height: 196)
         arrayPlayersChicago.append(Player3)
         
+        
+        
         // jugadores de boston
         let Player6 = Player(name: "Josh Giddy", imageName: "JoshGiddey", height: 202)
         arrayPlayersBoston.append(Player6)
@@ -35,6 +37,8 @@ class PlayersViewModel {
         
         let Player8 = Player(name: "Cobe White", imageName: "Chicago", height: 196)
         arrayPlayersBoston.append(Player8)
+        
+        
         
         // Jugadores Lakers
         let Player11 = Player(name: "Josh Giddy", imageName: "JoshGiddey", height: 202)

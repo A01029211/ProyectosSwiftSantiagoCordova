@@ -11,5 +11,5 @@ struct Player : Identifiable{
     var id = UUID()
     var name: String
     var imageName: String
-    var height: Float
+    var height: Int
 }

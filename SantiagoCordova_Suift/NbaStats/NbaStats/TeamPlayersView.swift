@@ -12,7 +12,7 @@ struct TeamPlayersView: View {
     
 
     var body: some View {
-        List(players) { player in
+        List(team.players) { player in
             HStack {
                 Image(player.imageName)
                     .resizable()

@@ -8,23 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
+    let teamViewModel = TeamViewModel()
+
     var body: some View {
         NavigationStack {
             VStack {
-                List{
-                    ForEach(TeamViewModel.arrayTeams) { item in
-                        
+                List {
+                    ForEach(teamViewModel.arrayTeams) { item in
                         NavigationLink {
-                            TeamPlayersView(teamName: <#T##String#>, viewModel: <#T##PlayersViewModel#>: item)
+                            TeamPlayersView(team: team)
                         } label: {
-                            TeamRowView(team: item)
+                            TeamRowView(team: team)
                         }
-                        
                     }
                 }
-                
             }
-            .padding()
+            .navigationTitle("NBA Teams")
+        }
     }
 }
 

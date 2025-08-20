@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TeamRowView: View {
     let team: Team
+    
     var body: some View {
         
         HStack {
@@ -16,7 +17,7 @@ struct TeamRowView: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 100)
-                .containerShape(Circle())
+                .clipShape(Circle())
             
             Text(team.name)
         }
@@ -24,5 +25,5 @@ struct TeamRowView: View {
 }
 
 #Preview {
-    TeamRowView(team: Team(name: "Chicago, Bulls", imageName: "Chicago"))
+    TeamRowView(team: Team(name: "Chicago, Bulls", imageName: "Chicago", players: []))
 }

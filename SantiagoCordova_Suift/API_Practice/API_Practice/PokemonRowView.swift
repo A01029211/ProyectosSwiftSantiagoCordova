@@ -18,6 +18,3 @@ struct PokemonRowView: View {
     }
 }
 
-#Preview {
-    PokemonRowView()
-}

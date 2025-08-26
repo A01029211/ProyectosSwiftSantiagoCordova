@@ -16,7 +16,6 @@ struct PokemonListResponse: Codable {
 struct PokemonEntry: Codable, Identifiable {
     let name: String
     let url: String
-    
     var id: String { url }
 }
 

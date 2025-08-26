@@ -8,17 +8,31 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var pokemonVM = PokemonViewModel()
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            List(pokemonVM.pokemonList) { pokemon in
+                NavigationLink {
+                    PokemonDetailView(url: pokemon.url, pokemonVM: pokemonVM)
+                } label: {
+                    PokemonRowView(pokemon: pokemon)
+                }
+            }
+            .task {
+                do {
+                    try await pokemonVM.getPokemonList()
+                } catch {
+                    print("Error al cargar Pokémon")
+                }
+            }
+            .navigationTitle("Pokédex (Gen 1)")
         }
-        .padding()
     }
 }
 
 #Preview {
     ContentView()
 }
+

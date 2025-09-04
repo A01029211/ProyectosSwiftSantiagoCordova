@@ -7,12 +7,33 @@
 
 import SwiftUI
 
+
 struct ContentView: View {
+    
+@State private var artVM = artViewModel()
+    
     var body: some View {
-        VStack {
+        
+        NavigationStack {
+            
+            VStack {
+
+                List {
+                    ForEach(artVM.arrArt) { item in
+                        
+                        NavigationLink {
+                            DetaliArtView(art: item)
+                        } label: {
+                            ArtRowView(art: item)
+                        }
+
+                    }
+                }
+            }
+            .padding()
             
         }
-        .padding()
+        
     }
 }
 

@@ -8,7 +8,7 @@
 import Foundation
 
 struct Artist : Decodable, Identifiable {
-    var id = UUID()
+    var id : Int
     var artist : String
     var title : String
     var description : String

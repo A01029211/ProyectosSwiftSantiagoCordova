@@ -12,6 +12,7 @@ struct ListaPagosView: View {
     
     var categoria: String
         @Query var pagos: [Pago]
+    @State private var isShowingPagoSheat = false
 
         init(categoria: String) {
             self.categoria = categoria
@@ -33,12 +34,20 @@ struct ListaPagosView: View {
                     .bold()
             }
             .padding(.vertical, 4)
+            .toolbar{
+                Button("Add", systemImage: "plus") {
+                    isShowingPagoSheat = true
+                }
+            }
+            .sheet(isPresented: $isShowingPagoSheat){
+                AddPagoSheet(categoria: categoria)
+            }
             
         }
     }
 }
 
 #Preview {
-    
     ListaPagosView(categoria: "Comida")
+        .modelContainer(for: [Pago.self], inMemory: true)
 }

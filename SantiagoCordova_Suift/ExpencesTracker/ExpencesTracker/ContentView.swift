@@ -20,11 +20,11 @@ struct ContentView: View {
                 ForEach(categorias, id: \.self) {
                     categoria in
                     NavigationLink(destination: ListaPagosView(categoria: categoria)){
-                        
+                        Text(categoria)
+                            .font(.title2)
+                            .padding()
                     }
-                    Text(categoria)
-                        .font(.title2)
-                        .padding()
+                    
                 }
             }
             .navigationTitle("Lista de Gastos")

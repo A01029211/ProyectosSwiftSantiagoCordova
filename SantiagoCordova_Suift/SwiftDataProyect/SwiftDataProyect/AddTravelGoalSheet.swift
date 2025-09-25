@@ -34,11 +34,13 @@ struct AddTravelGoalSheet: View {
             }
             ToolbarItemGroup(placement: .topBarTrailing) {
                 Button("Save"){
+                    guard TravelGoal.isValidName(name) else { return }
                     let travelGoal = TravelGoal(name: name, dateAdded: dateAdded, visited: visited)
                     context.insert(travelGoal)
                     try! context.save()
                     dismiss()
                 }
+                .disabled(!TravelGoal.isValidName(name))
             }
         }
         

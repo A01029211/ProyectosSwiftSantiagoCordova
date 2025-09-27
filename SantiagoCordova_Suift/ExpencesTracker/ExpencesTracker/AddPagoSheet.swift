@@ -34,6 +34,17 @@ struct AddPagoSheet: View {
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Guardar") {
+                        guard let monto = Int(total) else { return }
+                        let nuevo = Pago(
+                            typodePago: categoria,  // ¡clave para que pase el filtro!
+                            titulo: titulo,
+                            info: info,
+                            total: monto,
+                            dateAdded: dateAdded
+                        )
+                        context.insert(nuevo)
+                        // SwiftData autosavea, pero llamar save() hace el commit explícito:
+                        try? context.save()
                         dismiss()
                     }
                     .disabled(!isValidPago)
